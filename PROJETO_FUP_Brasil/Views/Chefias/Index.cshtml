@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PROJETO_FUP_Brasil.Models.Chefia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeChefia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Setor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuncionarioId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeChefia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Setor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncionarioId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ChefiaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ChefiaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ChefiaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

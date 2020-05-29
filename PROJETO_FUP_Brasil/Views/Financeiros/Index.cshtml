@@ -1,0 +1,56 @@
+﻿@model PROJETO_FUP_Brasil.Models.FinanceiroViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class='text-center'>
+    <h1 class="pt-5">Controle do Financeiro</h1>
+</div>
+
+<table class="table py-5 text-" style="background-color:beige; color:darkgreen; font-weight:900;  font-size:22px;">
+    <thead>
+        <tr>
+            <th>
+                Entrada
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-light">
+        @foreach (var item in Model.Alunos)
+        {
+            <tr>
+                <td style="background-color:beige; color:darkgreen; font-weight:900; font-size:22px;">
+                    @Html.DisplayFor(modelItem => item.Cursos.ValorCurso)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table py-5 text-" style="background-color:beige; color:red; font-weight:900;  font-size:22px;">
+    <thead>
+        <tr>
+            <th>
+                Saida
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Funcionarios)
+        {
+            double y = 0;
+            double x = Convert.ToDouble(item.SalarioFuncionario);
+            y = x + y;
+
+            <tr>
+                <td class="text" style="background-color:beige; color:red; font-weight:900;  font-size:22px;">
+                    @Html.DisplayFor(modelItem => item.SalarioFuncionario)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="link-add text-white" asp-area="" asp-controller="Financeiros" asp-action="Download">Gerar Relatório</a>
